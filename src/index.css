@@ -22,12 +22,19 @@
 }
 
 .home-container {
-  @apply flex flex-col items-center justify-center h-[90vh] gap-2 
+  @apply 
+    flex
+    flex-col
+    items-center
+    justify-center
+    h-[90vh]
+    gap-2 
 }
 
 .navbar{
   @apply 
-    flex items-center
+    flex
+    items-center
     gap-2
     bg-slate-800
     text-slate-50
