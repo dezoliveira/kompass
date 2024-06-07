@@ -1,3 +1,7 @@
+import { Route, Routes } from 'react-router-dom'
+import Home from './routes/Home'
+import Location from './routes/Location'
+
 import './App.css'
 
 function App() {
@@ -5,9 +9,11 @@ function App() {
 
   return (
     <>
-      <div className='bg-slate-800'>
-        <h1 className='text-violet-500'>Tailwind CSS</h1>
-      </div>
+    <h1>navbar</h1>
+    <Routes>
+      <Route path='/' element={<Home/>} />
+      <Route path='/location' element={<Location/>} />
+    </Routes>
     </>
   )
 }
