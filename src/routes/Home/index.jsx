@@ -5,9 +5,10 @@ export default function Home() {
   return (
     <main>
       <div className='home-container'>
-        <img src={logo} className='w-full md:w-[600px]'/>
+        <img src={logo} className='logo'/>
         <h1>Bem vindo ao <strong>Kompass</strong></h1>
-        <h1>Encontre quem você procura</h1>
+        <h1>
+          <strong>Encontre </strong>quem você procura</h1>
         <NavLink to="/location">
           <button className='button'>Começar</button>
         </NavLink>
