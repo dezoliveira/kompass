@@ -15,10 +15,6 @@
   strong {
     @apply text-fuchsia-400
   }
-  
-  /* a {
-    @apply text-blue-600 underline;
-  } */
 }
 
 .home-container {
