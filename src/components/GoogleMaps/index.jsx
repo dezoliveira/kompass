@@ -4,7 +4,7 @@ export default function GoogleMaps() {
   return (
     <APIProvider apiKey={apiKey}>
       <Map
-        style={{width: '200px', height:'200px'}}
+        style={{width: '100vh', height:'80vh'}}
         defaultCenter={{lat: 22.54992, lng: 0}}
         defaultZoom={3}
         gestureHandling={'greedy'}
