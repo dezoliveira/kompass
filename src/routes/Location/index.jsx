@@ -12,13 +12,6 @@ export default function Location() {
     getUsers()
   }, [])
 
-  const handleModal = (e) => {
-    console.log('modal')
-    e.preventDefault()
-    setShowModal(true)
-    alert('showModal')
-  }
-
   const getUsers = async() => {
     const res = await fetch('https://jsonplaceholder.typicode.com/users')
     const data = await res.json()
@@ -31,13 +24,13 @@ export default function Location() {
       {
         showModal ? 
         <>
-          <Modal />
+          <Modal setShowModal={setShowModal}/>
         </> : <></>
       }
       <div className="flex flex-col sm:flex-row justify-between items-center p-8">
         <Suspense fallback={<><h1>Loading...</h1></>}>
           <GoogleMaps data={users}/>
-          <UsersList data={users} handleModal={handleModal}/>
+          <UsersList data={users} setShowModal={setShowModal}/>
         </Suspense>
       </div>
     </>

@@ -1,8 +1,9 @@
-export default function UsersList({ data, handleModal }) {
+export default function UsersList({ data, setShowModal }) {
   const users = data
 
-  const showModal = (e) => {
-    handleModal(e)
+  const handleModal = (e) => {
+    e.preventDefault()
+    setShowModal(true)
   }
 
   return (
@@ -10,7 +11,7 @@ export default function UsersList({ data, handleModal }) {
         {/* <h1 className="p-4">Users List</h1> */}
         <div className="w-full flex gap-4 items-center p-4">
           <p className="text-xl">Adicionar novo usuário </p>
-          <button className="button secondary" onClick={(e) => showModal(e)}>Adicionar</button>
+          <button className="button secondary" onClick={(e) => handleModal(e)}>Adicionar</button>
         </div>
         <table className="border-collapse table-auto w-full text-sm">
           <thead className="bg-slate-800">
