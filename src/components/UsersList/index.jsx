@@ -1,9 +1,17 @@
-export default function UsersList({ data }) {
+export default function UsersList({ data, handleModal }) {
   const users = data
+
+  const showModal = (e) => {
+    handleModal(e)
+  }
 
   return (
       <div className="w-[80vh] flex flex-col items-center justify-center">
-        <h1 className="p-4">Users List</h1>
+        {/* <h1 className="p-4">Users List</h1> */}
+        <div className="w-full flex gap-4 items-center p-4">
+          <p className="text-xl">Adicionar novo usuário </p>
+          <button className="button secondary" onClick={(e) => showModal(e)}>Adicionar</button>
+        </div>
         <table className="border-collapse table-auto w-full text-sm">
           <thead className="bg-slate-800">
             <tr>
