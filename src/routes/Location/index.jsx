@@ -1,6 +1,7 @@
 import { Suspense, useEffect } from "react"
 import { useState } from "react"
 import UsersList from "../../components/UsersList"
+import GoogleMaps from "../../components/GoogleMaps"
 
 export default function Location() {
   const [users, setUsers] = useState([])
@@ -18,9 +19,12 @@ export default function Location() {
 
   return (
     <>
-      <Suspense fallback={<><h1>Loading...</h1></>}>
-        <UsersList data={users}/>
-      </Suspense>
+      <div className="flex flex-col sm:flex-row justify-between items-center p-8">
+        <Suspense fallback={<><h1>Loading...</h1></>}>
+          <GoogleMaps data={users}/>
+          <UsersList data={users}/>
+        </Suspense>
+      </div>
     </>
   )
 }

@@ -1,17 +1,7 @@
-import GoogleMaps from "../GoogleMaps"
-import { Suspense } from "react"
-
 export default function UsersList({ data }) {
   const users = data
 
   return (
-    <div className="flex flex-col sm:flex-row justify-between items-center p-8">
-      <div className="w-full flex flex-col items-center justify-center">
-        <h1 className="p-4">Google Maps</h1>
-        <Suspense fallback={<><h1>Loading...</h1></>}>
-          <GoogleMaps data={users}/>
-        </Suspense>
-      </div>
       <div className="w-[80vh] flex flex-col items-center justify-center">
         <h1 className="p-4">Users List</h1>
         <table className="border-collapse table-auto w-full text-sm">
@@ -41,7 +31,6 @@ export default function UsersList({ data }) {
             ))}
           </tbody>
         </table>
-      </div>
-    </div> 
+      </div> 
   )
 }
