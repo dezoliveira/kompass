@@ -24,7 +24,38 @@ export default function Location() {
       {
         showModal ? 
         <>
-          <Modal setShowModal={setShowModal}/>
+          <Modal setShowModal={setShowModal}>
+            <form
+              className="flex flex-col items-center justify-center gap-2 pt-8"
+              // onSubmit={}
+            >
+              <label className="text-xl flex flex-col">
+                ID:
+                <input type="text" />
+              </label>
+              <label className="text-xl flex flex-col">
+                Nome:
+                <input type="text" />
+              </label>
+              <label className="text-xl flex flex-col">
+                Email:
+                <input type="text" />
+              </label>
+              <label className="text-xl flex flex-col">
+                Cidade:
+                <input type="text" />
+              </label>
+              <label className="text-xl flex flex-col">
+                lat:
+                <input type="text" />
+              </label>
+              <label className="text-xl flex flex-col">
+                lng:
+                <input type="text" />
+              </label>
+              <button className="button mt-2">Adicionar</button>
+            </form>
+          </Modal>
         </> : <></>
       }
       <div className="flex flex-col sm:flex-row justify-between items-center p-8">
