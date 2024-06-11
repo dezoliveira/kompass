@@ -1,9 +1,20 @@
-export default function UsersList({ data, setShowModal }) {
+import { useState, useRef } from "react"
+
+export default function UsersList({ data, setShowModal, handleKompass }) {
   const users = data
+  const [active, setActive] = useState(false)
+  const btnRef = useRef(null)
 
   const handleModal = (e) => {
     e.preventDefault()
     setShowModal(true)
+  }
+
+  const handleClick = (e, userID) => {
+    console.log(btnRef)
+    e.preventDefault()
+    setActive(!active)
+    handleKompass(userID, active)
   }
 
   return (
@@ -33,7 +44,12 @@ export default function UsersList({ data, setShowModal }) {
                     {user.address.city}
                   </td>
                   <td className="border-b border-slate-700 p-3 text-slate-400 text-center">
-                    <button className="button">
+                    <button
+                      className="button"
+                      onClick={(e) => handleClick(e, user.id)}
+                      id={user.id}
+                      ref={btnRef}
+                    >
                       Kompass
                     </button>
                   </td>

@@ -6,6 +6,7 @@ import Modal from "../../components/Modal"
 
 export default function Location() {
   const [users, setUsers] = useState([])
+  const [filteredUsers, setFilteredUsers] = useState([])
   const [id, setId] = useState("")
   const [name, setName] = useState("")
   const [email, setEmail] = useState("")
@@ -23,6 +24,7 @@ export default function Location() {
     const data = await res.json()
     console.log(data)
     setUsers(data)
+    setFilteredUsers(data)
     setId(data.length +1)
   }
 
@@ -43,6 +45,8 @@ export default function Location() {
       }
     }])
 
+    setFilteredUsers(users)
+
     cleanValues()
 
     console.log('new users', users)
@@ -56,6 +60,18 @@ export default function Location() {
     setLat("")
     setLng("")
   } 
+
+  const handleKompass = (userId, active) => {
+    if (active) {
+      setFilteredUsers((user) => {
+        return user.filter((u) => {
+          return u.id === userId
+        })
+      })
+    } else {
+      setFilteredUsers(users)
+    }
+  }
 
   return (
     <>
@@ -142,8 +158,8 @@ export default function Location() {
       }
       <div className="flex flex-col sm:flex-row justify-between items-center p-8">
         <Suspense fallback={<><h1>Loading...</h1></>}>
-          <GoogleMaps data={users}/>
-          <UsersList data={users} setShowModal={setShowModal}/>
+          <GoogleMaps data={filteredUsers}/>
+          <UsersList data={users} setShowModal={setShowModal} handleKompass={handleKompass}/>
         </Suspense>
       </div>
     </>
