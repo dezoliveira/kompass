@@ -45,6 +45,27 @@
     gap-2 
 }
 
+.map-container {
+  @apply
+    w-full
+    flex
+    flex-col
+    items-center
+    justify-center
+}
+
+.info-content {
+  @apply
+    flex
+    flex-col
+    items-center
+    justify-center 
+    bg-slate-900
+    w-full rounded-lg
+    h-40
+    text-white
+}
+
 .navbar{
   @apply 
     flex

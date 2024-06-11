@@ -11,8 +11,10 @@ export default function GoogleMaps({ data }) {
   const [showInfoWindow, setShowInfoWindow] = useState(true);
 
   return (
-    <div className="w-full flex flex-col items-center justify-center">
+    <div className="map-container">
       <h1 className="p-4">Google Maps</h1>
+
+      {/* Google Map */}
       <APIProvider apiKey={apiKey}>
         <Map
           style={{width: '100vh', height:'80vh'}}
@@ -23,9 +25,13 @@ export default function GoogleMaps({ data }) {
         >
           {users.map((user) => (
             <>
+              {/* Marker */}
               <Marker
                 key={user.id}
-                position={{lat: Number(user.address.geo.lat), lng: Number(user.address.geo.lng)}}
+                position={{
+                  lat: Number(user.address.geo.lat),
+                  lng: Number(user.address.geo.lng)
+                }}
                 onClick={(marker) => {
                   setSelectedElement(user);
                   setActiveMarker(marker);
@@ -34,23 +40,32 @@ export default function GoogleMaps({ data }) {
             </>
           ))}
           {selectedElement ? (
+            // Info Window
             <InfoWindow
-              position={{lat: Number(selectedElement.address.geo.lat), lng: Number(selectedElement.address.geo.lng)}}
+              position={{
+                lat: Number(selectedElement.address.geo.lat),
+                lng: Number(selectedElement.address.geo.lng)
+              }}
               visible={showInfoWindow}
               marker={activeMarker}
               onCloseClick={() => {
                 setSelectedElement(null);
               }}
             >
-              <div className="flex flex-col items-center justify-center bg-slate-900 w-full rounded-lg h-40 text-white p-4">
+              {/* Info Window content */}
+              <div className="info-content p-4">
                 <h2>{selectedElement.name}</h2>
                 <span>City: {selectedElement.address.city}</span>
-                <small>lat: {selectedElement.address.geo.lat} / lng: {selectedElement.address.geo.lng}</small>
+                <small>
+                  lat: {selectedElement.address.geo.lat} / 
+                  lng: {selectedElement.address.geo.lng}
+                </small>
               </div>
             </InfoWindow>
           ) : null}
         </Map>
       </APIProvider>
+      
     </div>
   )
 }
