@@ -61,16 +61,14 @@ export default function Location() {
     setLng("")
   } 
 
-  const handleKompass = (userId, active) => {
-    if (active) {
+  const handleKompass = (userId) => {
+    setFilteredUsers(users)
+    
       setFilteredUsers((user) => {
         return user.filter((u) => {
           return u.id === userId
         })
       })
-    } else {
-      setFilteredUsers(users)
-    }
   }
 
   return (
