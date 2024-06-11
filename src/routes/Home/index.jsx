@@ -10,7 +10,7 @@ export default function Home() {
         <h1>
           <strong>Encontre </strong>quem você procura</h1>
         <NavLink to="/location">
-          <button className='button'>Começar</button>
+          <button className='button primary'>Começar</button>
         </NavLink>
       </div>
     </main>

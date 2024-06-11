@@ -147,7 +147,7 @@ export default function Location() {
               </label>
 
               {/* Add new user */}
-              <button className="button mt-2">
+              <button className="button primary mt-2">
                 Adicionar
               </button>
             </form>

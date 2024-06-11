@@ -6,17 +6,47 @@
   h1 {
     @apply text-2xl;
   }
+
   h2 {
     @apply text-xl;
   }
+
   h3 {
     @apply text-lg;
   }
+
   strong {
     @apply text-fuchsia-400
   }
+
   input {
-    @apply w-[40vh] border-spacing-1 border-2 border-slate-900 rounded-lg p-2 bg-slate-100 focus:border-fuchsia-400 outline-none
+    @apply
+      w-[40vh]
+      border-spacing-1
+      border-2
+      border-slate-900
+      rounded-lg p-2
+      bg-slate-100
+      bg-slate-900
+      text-slate-50
+      focus:border-fuchsia-400
+      outline-none
+  }
+
+  thead {
+    @apply bg-slate-800
+  }
+
+  tbody {
+    @apply bg-slate-800
+  }
+
+  td, th {
+    @apply
+      border-b
+      border-slate-700
+      text-slate-400
+      p-3
   }
 
   .table-scrool::-webkit-scrollbar {
@@ -52,6 +82,23 @@
     flex-col
     items-center
     justify-center
+}
+
+.users-container {
+  @apply
+    w-[80vh]
+    flex
+    flex-col
+    items-center
+    justify-center
+}
+
+.add-content {
+  @apply 
+    w-full
+    flex
+    gap-4
+    items-center 
 }
 
 .info-content {
@@ -138,7 +185,31 @@
 }
 
 .button {
-  @apply bg-fuchsia-400 px-4 py-3 rounded-md text-slate-50 shadow-2xl hover:opacity-90
+  @apply 
+    px-4
+    py-3
+    rounded-md
+    text-slate-50
+    shadow-2xl
+    hover:opacity-90
+}
+
+.table {
+  @apply
+    w-full
+    h-full
+    text-sm
+}
+
+.table-scrool {
+  @apply
+    max-h-[80vh]
+    w-full
+    overflow-y-scroll
+}
+
+.primary {
+  @apply bg-fuchsia-400
 }
 
 .secondary {
