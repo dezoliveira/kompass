@@ -9,11 +9,11 @@ export default function UsersList({ data, setShowModal }) {
   return (
       <div className="w-[80vh] flex flex-col items-center justify-center">
         {/* <h1 className="p-4">Users List</h1> */}
-        <div className="w-full flex gap-4 items-center p-4">
+        <div className="w-full flex gap-4 items-center py-2">
           <p className="text-xl">Adicionar novo usuário </p>
           <button className="button secondary" onClick={(e) => handleModal(e)}>Adicionar</button>
         </div>
-        <div className="table-scrool max-h-[80vh] overflow-y-scroll">
+        <div className="table-scrool max-h-[80vh] w-full overflow-y-scroll">
           <table className="border-collapse table-auto w-full h-full text-sm">
             <thead className="bg-slate-800">
               <tr>

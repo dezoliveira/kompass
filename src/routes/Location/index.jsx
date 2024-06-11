@@ -63,6 +63,7 @@ export default function Location() {
         showModal ? 
         <>
           <Modal setShowModal={setShowModal}>
+            {/* Form */}
             <form
               className="flex flex-col items-center justify-center gap-2 pt-8 w-full"
               onSubmit={(e) => {
@@ -131,6 +132,7 @@ export default function Location() {
                 />
               </label>
 
+              {/* Add new user */}
               <button className="button mt-2">
                 Adicionar
               </button>
