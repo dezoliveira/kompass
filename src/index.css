@@ -16,7 +16,22 @@
     @apply text-fuchsia-400
   }
   input {
-    @apply border-spacing-1 border-2 border-slate-900 rounded-lg p-2 bg-slate-100 focus:border-fuchsia-400 outline-none
+    @apply w-[40vh] border-spacing-1 border-2 border-slate-900 rounded-lg p-2 bg-slate-100 focus:border-fuchsia-400 outline-none
+  }
+
+  .table-scrool::-webkit-scrollbar {
+    /* Customize the scrollbar width */
+    @apply bg-slate-100
+  }
+
+  .table-scrool::-webkit-scrollbar-track {
+    /* Customize the scrollbar track */
+    @apply bg-slate-900
+  }
+
+  .table-scrool::-webkit-scrollbar-thumb {
+    /* Customize the scrollbar thumb */
+    @apply bg-indigo-400 hover:bg-fuchsia-400
   }
 }
 
@@ -55,4 +70,8 @@
 
 .logo {
   @apply w-full md:w-[600px] lg:w-[600px]
+}
+
+.disabled {
+  @apply bg-slate-200 border-slate-200
 }

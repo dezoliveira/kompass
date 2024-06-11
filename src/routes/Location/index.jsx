@@ -6,6 +6,12 @@ import Modal from "../../components/Modal"
 
 export default function Location() {
   const [users, setUsers] = useState([])
+  const [id, setId] = useState("")
+  const [name, setName] = useState("")
+  const [email, setEmail] = useState("")
+  const [city, setCity] = useState("")
+  const [lat, setLat] = useState("")
+  const [lng, setLng] = useState("")
   const [showModal, setShowModal] = useState(false)
 
   useEffect(() => {
@@ -17,7 +23,39 @@ export default function Location() {
     const data = await res.json()
     console.log(data)
     setUsers(data)
+    setId(data.length +1)
   }
+
+  const addNewUser = (e) => {
+    console.log(users.length)
+    e.preventDefault()
+
+    setUsers([...users, {
+      id: id,
+      name: name,
+      email: email,
+      address: {
+        city: city,
+        geo: {
+          lat: lat,
+          lng: lng
+        }
+      }
+    }])
+
+    cleanValues()
+
+    console.log('new users', users)
+  }
+
+  const cleanValues = () => {
+    setId(id + 1)
+    setName("")
+    setEmail("")
+    setCity("")
+    setLat("")
+    setLng("")
+  } 
 
   return (
     <>
@@ -26,34 +64,76 @@ export default function Location() {
         <>
           <Modal setShowModal={setShowModal}>
             <form
-              className="flex flex-col items-center justify-center gap-2 pt-8"
-              // onSubmit={}
+              className="flex flex-col items-center justify-center gap-2 pt-8 w-full"
+              onSubmit={(e) => {
+                addNewUser(e),
+                setShowModal()
+              }}
             >
+              {/* ID */}
               <label className="text-xl flex flex-col">
                 ID:
-                <input type="text" />
+                <input
+                  className="disabled"
+                  type="text"
+                  value={id}
+                  disabled
+                />
               </label>
+
+              {/* Nome */}
               <label className="text-xl flex flex-col">
                 Nome:
-                <input type="text" />
+                <input
+                  type="text"
+                  value={name}
+                  onChange={(e) => setName(e.target.value)}
+                />
               </label>
+
+              {/* Email */}
               <label className="text-xl flex flex-col">
                 Email:
-                <input type="text" />
+                <input
+                  type="text"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  />
               </label>
+
+              {/* Cidade */}
               <label className="text-xl flex flex-col">
                 Cidade:
-                <input type="text" />
+                <input
+                  type="text"
+                  value={city}
+                  onChange={(e) => setCity(e.target.value)}
+                />
               </label>
+
+              {/* Latitude */}
               <label className="text-xl flex flex-col">
                 lat:
-                <input type="text" />
+                <input
+                  type="text"
+                  value={lat}
+                  onChange={(e) => setLat(e.target.value)}
+                />
               </label>
+
+              {/* Longitude */}
               <label className="text-xl flex flex-col">
                 lng:
-                <input type="text" />
+                <input
+                  type="text"
+                  value={lng}
+                  onChange={(e) => setLng(e.target.value)}
+                />
               </label>
-              <button className="button mt-2">Adicionar</button>
+
+              <button className="button mt-2">
+                Adicionar
+              </button>
             </form>
           </Modal>
         </> : <></>
