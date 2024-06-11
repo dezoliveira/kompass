@@ -1,7 +1,9 @@
-import { APIProvider, Map, Marker } from "@vis.gl/react-google-maps"
+import { APIProvider, InfoWindow, Map, Marker, useMarkerRef } from "@vis.gl/react-google-maps"
+
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 export default function GoogleMaps({ data }) {
   const users = data
+  const [markerRef, marker] = useMarkerRef();
 
   return (
     <div className="w-full flex flex-col items-center justify-center">
@@ -15,10 +17,18 @@ export default function GoogleMaps({ data }) {
           disableDefaultUI={true}
         >
           {users.map((user) => (
-            <Marker
-              key={user.id}
-              position={{lat: Number(user.address.geo.lat), lng: Number(user.address.geo.lng)}}
-            />
+            <>
+              <Marker
+                ref={markerRef}
+                key={user.id}
+                position={{lat: Number(user.address.geo.lat), lng: Number(user.address.geo.lng)}}
+              />
+              <InfoWindow
+                anchor={marker}
+              >
+                <p>{user.name}</p>
+              </InfoWindow>
+            </>
           ))}
         </Map>
       </APIProvider>
