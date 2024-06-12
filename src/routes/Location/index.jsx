@@ -79,14 +79,14 @@ export default function Location() {
           <Modal setShowModal={setShowModal}>
             {/* Form */}
             <form
-              className="flex flex-col items-center justify-center gap-2 pt-8 w-full"
+              className="form pt-8"
               onSubmit={(e) => {
                 addNewUser(e),
                 setShowModal()
               }}
             >
               {/* ID */}
-              <label className="text-xl flex flex-col">
+              <label className="form-label">
                 ID:
                 <input
                   className="disabled"
@@ -97,7 +97,7 @@ export default function Location() {
               </label>
 
               {/* Nome */}
-              <label className="text-xl flex flex-col">
+              <label className="form-label">
                 Nome:
                 <input
                   type="text"
@@ -107,7 +107,7 @@ export default function Location() {
               </label>
 
               {/* Email */}
-              <label className="text-xl flex flex-col">
+              <label className="form-label">
                 Email:
                 <input
                   type="text"
@@ -117,7 +117,7 @@ export default function Location() {
               </label>
 
               {/* Cidade */}
-              <label className="text-xl flex flex-col">
+              <label className="form-label">
                 Cidade:
                 <input
                   type="text"
@@ -127,7 +127,7 @@ export default function Location() {
               </label>
 
               {/* Latitude */}
-              <label className="text-xl flex flex-col">
+              <label className="form-label">
                 lat:
                 <input
                   type="text"
@@ -137,7 +137,7 @@ export default function Location() {
               </label>
 
               {/* Longitude */}
-              <label className="text-xl flex flex-col">
+              <label className="form-label">
                 lng:
                 <input
                   type="text"
@@ -154,7 +154,9 @@ export default function Location() {
           </Modal>
         </> : <></>
       }
-      <div className="flex flex-col sm:flex-row justify-between items-center p-8">
+
+      {/* Main Container */}
+      <div className="location-container">
         <Suspense fallback={<><h1>Loading...</h1></>}>
           <GoogleMaps data={filteredUsers}/>
           <UsersList data={users} setShowModal={setShowModal} handleKompass={handleKompass}/>

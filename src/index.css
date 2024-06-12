@@ -93,6 +93,15 @@
     justify-center
 }
 
+.location-container {
+  @apply
+    flex
+    flex-col
+    sm:flex-row
+    justify-between
+    items-center 
+}
+
 .add-content {
   @apply 
     w-full
@@ -208,6 +217,23 @@
     overflow-y-scroll
 }
 
+.form {
+  @apply 
+    flex
+    flex-col
+    items-center
+    justify-center
+    gap-2
+    w-full
+}
+
+.form-label {
+  @apply
+    text-xl
+    flex
+    flex-col
+}
+
 .primary {
   @apply bg-fuchsia-400
 }
@@ -217,9 +243,14 @@
 }
 
 .logo {
-  @apply w-full md:w-[600px] lg:w-[600px]
+  @apply
+    w-full
+    md:w-[600px]
+    lg:w-[600px]
 }
 
 .disabled {
-  @apply bg-slate-200 border-slate-200
+  @apply
+    bg-slate-200
+    border-slate-200
 }
