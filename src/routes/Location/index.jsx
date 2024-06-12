@@ -161,7 +161,7 @@ export default function Location() {
       }
 
       {/* Main Container */}
-      <div className="location-container">
+      <div className="location-container p-8">
         <Suspense fallback={<><h1>Loading...</h1></>}>
           <GoogleMaps data={filteredUsers}/>
           <UsersList
