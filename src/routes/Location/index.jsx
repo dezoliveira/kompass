@@ -101,6 +101,7 @@ export default function Location() {
                 Nome:
                 <input
                   type="text"
+                  placeholder="Seu nome completo"
                   value={name}
                   onChange={(e) => setName(e.target.value)}
                 />
@@ -111,6 +112,7 @@ export default function Location() {
                 Email:
                 <input
                   type="text"
+                  placeholder="Seu melhor email"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   />
@@ -121,6 +123,7 @@ export default function Location() {
                 Cidade:
                 <input
                   type="text"
+                  placeholder="Sua cidade atual"
                   value={city}
                   onChange={(e) => setCity(e.target.value)}
                 />
@@ -128,8 +131,9 @@ export default function Location() {
 
               {/* Latitude */}
               <label className="form-label">
-                lat:
+                Latidude:
                 <input
+                  placeholder="-14.653"
                   type="text"
                   value={lat}
                   onChange={(e) => setLat(e.target.value)}
@@ -138,8 +142,9 @@ export default function Location() {
 
               {/* Longitude */}
               <label className="form-label">
-                lng:
+                Longitude:
                 <input
+                  placeholder="19"
                   type="text"
                   value={lng}
                   onChange={(e) => setLng(e.target.value)}

@@ -30,6 +30,8 @@
       bg-slate-900
       text-slate-50
       focus:border-fuchsia-400
+      focus:shadow-md 
+      focus:shadow-fuchsia-400
       outline-none
   }
 
@@ -156,7 +158,7 @@
 .modal {
   @apply
     relative
-    w-[80vh]
+    w-[60vh]
     h-[80vh]
     z-20
     bg-slate-50
@@ -229,7 +231,7 @@
 
 .form-label {
   @apply
-    text-xl
+    text-lg
     flex
     flex-col
 }
@@ -253,4 +255,5 @@
   @apply
     bg-slate-200
     border-slate-200
+    text-slate-400
 }
