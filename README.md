@@ -2,11 +2,12 @@
 
 #### Visão Geral
 
-Bem vindo ao Harpia Countries, aplicativo de consulta de países que utiliza a API Rest Countries para consultar os países e a API do Google Maps para exibi-los no mapa. Suas funcionalidades são:
+Bem vindo ao Kompass, aplicativo de Listagem e identificação de usuários no Google Maps, através de Latitude e Longitude consumidas por api e tendo também a funcionalidade de poder adicionar um novo usuario a Lista de Usuários e no mapa. Suas funcionalidades são:
 
-- Consulta de países através da barra de pesquisa
-- Marcador no local em que o país se encontra
-- Info View ao clicar no marcador que exibe os detalhes do país como nome, bandeira, língua e moeda.
+- Consulta de usuários através do mapa e da listagem de usuários
+- Marcador no local em que o usuário se encontra
+- Info View ao clicar no marcador que exibe os detalhes do usuário como nome, cidade, latitude e longitude.
+- Botão Kompass que rastreia um usuário específico no mapa.
 
 ---
 
