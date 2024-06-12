@@ -64,11 +64,12 @@ export default function Location() {
   const handleKompass = (userId) => {
     setFilteredUsers(users)
     
-      setFilteredUsers((user) => {
-        return user.filter((u) => {
-          return u.id === userId
-        })
+    setFilteredUsers((user) => {
+      return user.filter((u) => {
+        return u.id === userId
       })
+    })
+
   }
 
   return (

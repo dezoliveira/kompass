@@ -1,20 +1,29 @@
-import { useState, useRef } from "react"
+import { useState, createRef, useEffect } from "react"
 
 export default function UsersList({ data, setShowModal, handleKompass }) {
   const users = data
-  const [active, setActive] = useState(false)
-  const btnRef = useRef(null)
+  // const [active, setActive] = useState(false)
+  const refs = []
+
+  useEffect(() => {
+  
+  }, [refs])
 
   const handleModal = (e) => {
     e.preventDefault()
     setShowModal(true)
   }
 
-  const handleClick = (e, userID) => {
-    console.log(btnRef)
+  const handleClick = (e, userID, refId) => {
     e.preventDefault()
-    setActive(!active)
-    handleKompass(userID, active)
+
+    refs.map(ref => {
+      ref.current.className = "button primary"
+    })
+
+    refId.current.className = "button btn-active"
+
+    handleKompass(userID)
   }
 
   return (
@@ -42,27 +51,32 @@ export default function UsersList({ data, setShowModal, handleKompass }) {
               </tr>
             </thead>
             <tbody>
-              {users.map((user) => (
-                <tr key={user.id}>
-                  <td>
-                    <p>{user.name}</p>
-                    <small>{user.email}</small>
-                  </td>
-                  <td>
-                    {user.address.city}
-                  </td>
-                  <td className="text-center">
-                    <button
-                      className="button primary"
-                      onClick={(e) => handleClick(e, user.id)}
-                      id={user.id}
-                      ref={btnRef}
-                    >
-                      Kompass
-                    </button>
-                  </td>
-                </tr>
-              ))}
+              {users.map((user, index) => {
+                refs.push(createRef())
+                return (
+                  <tr key={user.id}>
+                    <td>
+                      <p>{user.name}</p>
+                      <small>{user.email}</small>
+                    </td>
+                    <td>
+                      {user.address.city}
+                    </td>
+                    <td className="text-center">
+                      <button
+                        className="button primary"
+                        onClick={(e) => {
+                          handleClick(e, user.id, refs[index])
+                        }}
+                        id={user.id}
+                        ref={refs[index]}
+                      >
+                        Kompass
+                      </button>
+                    </td>
+                  </tr>
+                )
+              })}
             </tbody>
           </table>
         </div>

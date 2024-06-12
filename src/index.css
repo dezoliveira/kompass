@@ -257,3 +257,7 @@
     border-slate-200
     text-slate-400
 }
+
+.btn-active {
+  @apply bg-emerald-500
+}
