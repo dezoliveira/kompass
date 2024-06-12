@@ -159,7 +159,11 @@ export default function Location() {
       <div className="location-container">
         <Suspense fallback={<><h1>Loading...</h1></>}>
           <GoogleMaps data={filteredUsers}/>
-          <UsersList data={users} setShowModal={setShowModal} handleKompass={handleKompass}/>
+          <UsersList
+            data={users}
+            setShowModal={setShowModal}
+            handleKompass={handleKompass}
+          />
         </Suspense>
       </div>
     </>
