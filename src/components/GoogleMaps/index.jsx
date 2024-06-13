@@ -3,8 +3,6 @@ import { useState } from "react"
 
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
 
-console.log(apiKey)
-
 export default function GoogleMaps({ data }) {
   const users = data
   // const [markerRef, marker] = useMarkerRef();
