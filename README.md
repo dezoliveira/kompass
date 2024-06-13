@@ -9,6 +9,8 @@ Bem vindo ao Kompass, aplicativo de Listagem e identificação de usuários no G
 - Info View ao clicar no marcador que exibe os detalhes do usuário como nome, cidade, latitude e longitude.
 - Botão Kompass que rastreia um usuário específico no mapa.
 
+Acesse: [Kompass](https://kompass-beige.vercel.app/)
+
 ---
 
 #### Tecnologias
@@ -48,3 +50,11 @@ Bem vindo ao Kompass, aplicativo de Listagem e identificação de usuários no G
 - git clone https://www.github.com/dezoliveira/kompass
 - npm install
 - npm run dev
+
+#### Como Rodar o Docker
+
+- git clone https://www.github.com/dezoliveira/kompass
+- npm install -g docker
+- docker build -t reactjs-cookbook/dockerize-reactjs-app .
+- docker run -it -p 8080:80 --rm --name dockerize-reactjs-app reactjs-cookbook/dockerize-reactjs-app
+- localhost:8080
