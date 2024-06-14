@@ -1,9 +1,10 @@
-import { APIProvider, InfoWindow, Map, Marker } from "@vis.gl/react-google-maps"
+import { APIProvider, AdvancedMarker, InfoWindow, Map, Marker, Pin } from "@vis.gl/react-google-maps"
 import { useState } from "react"
 
 const apiKey = import.meta.env.VITE_GOOGLE_MAPS_API_KEY
+const mapId = import.meta.env.VITE_GOOGLE_MAPS_ID
 
-export default function GoogleMaps({ data }) {
+export default function GoogleMaps({ data, selected }) {
   const users = data
   // const [markerRef, marker] = useMarkerRef();
   const [selectedElement, setSelectedElement] = useState(null);
@@ -22,6 +23,7 @@ export default function GoogleMaps({ data }) {
           defaultZoom={1}
           gestureHandling={'greedy'}
           disableDefaultUI={true}
+          mapId={mapId}
         >
           {users.map((user) => (
             <>
@@ -37,6 +39,14 @@ export default function GoogleMaps({ data }) {
                   setActiveMarker(marker);
                 }}
               />
+              {selected.length ? <>
+                <AdvancedMarker position={{
+                  lat: Number(selected[0].address.geo.lat),
+                  lng: Number(selected[0].address.geo.lng)
+                }}>
+                  <Pin background={'#10b981'} glyphColor={'#000'} borderColor={'#000'}/>
+                </AdvancedMarker>
+              </> : ""}
             </>
           ))}
           {selectedElement ? (

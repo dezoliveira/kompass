@@ -24,7 +24,6 @@ export default function Location() {
     const data = await res.json()
     console.log(data)
     setUsers(data)
-    setFilteredUsers(data)
     setId(data.length +1)
   }
 
@@ -45,8 +44,6 @@ export default function Location() {
       }
     }])
 
-    setFilteredUsers(users)
-
     cleanValues()
 
     console.log('new users', users)
@@ -62,13 +59,17 @@ export default function Location() {
   } 
 
   const handleKompass = (userId) => {
-    setFilteredUsers(users)
-    
-    setFilteredUsers((user) => {
-      return user.filter((u) => {
-        return u.id === userId
+
+    if (userId) {
+      setFilteredUsers(users)
+      setFilteredUsers((user) => {
+        return user.filter((u) => {
+          return u.id === userId
+        })
       })
-    })
+
+    }
+    
 
   }
 
@@ -164,7 +165,7 @@ export default function Location() {
       {/* Main Container */}
       <div className="location-container p-8">
         <Suspense fallback={<><h1>Loading...</h1></>}>
-          <GoogleMaps data={filteredUsers}/>
+          <GoogleMaps data={users} selected={filteredUsers}/>
           <UsersList
             data={users}
             setShowModal={setShowModal}
